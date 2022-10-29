@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturant App</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <section id="loading"></section>
+    <div class="cover">
+      <header>
+        <nav class="d-flex justify-content-between flex-column">
+          <ul class="my-5">
+            <li class="homes">
+              <a aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="search">
+              <a aria-current="page" href="search.html">Search</a>
+            </li>
+            <li class="categories">
+              <a href="category.html">Categories</a>
+            </li>
+            <li class="area">
+              <a href="area.html">Area</a>
+            </li>
+            <li class="ingredients">
+              <a href="ingredient.html">Ingredients</a>
+            </li>
+            <li class="contact">
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="social text-center mt-5">
+            <i class="fa-brands fa-facebook-f px-2"></i>
+            <i class="fa-brands fa-youtube px-2"></i>
+            <i class="fa-brands fa-twitter px-2"></i>
+            <i class="fa-brands fa-linkedin px-2"></i>
+            <p class="pt-4">Copyright &copy; 2022 All Rights Reserved.</p>
+          </div>
+        </nav>
+        <div class="menu d-flex flex-column justify-content-between">
+          <div class="activeBtn">
+            <i class="fa-solid fa-sliders menu-item" id="toggle"></i>
+            <i class="fa-solid fa-xmark menu-item d-none" id="close"></i>
+          </div>
+          <i class="fas fa-globe"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+      </header>
+      <section class="home vh-100" id="mealsCategories">
+        <div class="cover">
+          <div class="container">
+            <div class="row">
+              <div class="logo w-25 mx-auto">
+                <img
+                  src="images/png-clipart-innovative-restaurant-logo-free-logo-design-template-eps (2).png"
+                  alt="logo"
+                  class="w-100"
+                />
+              </div>
+              <div class="row g-4 mt-5" id="meals"></div>
+
+              <!-- <div class="w-100">
+              <img
+                src="images/blackboard-chalkboard-background-graphicpanicm-15.jpg"
+                alt=""
+                class="w-100"
+                srcset=""
+              />
+            </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="home vh-100 text-white position-absolute top-0 start-0 end-0 bottom-0 d-none"
+        id="lightBox"
+      >
+        <div class="cover">
+          <div class="container">
+            <div class="row">
+              <div class="logo w-25 mx-auto">
+                <img
+                  src="images/png-clipart-innovative-restaurant-logo-free-logo-design-template-eps (2).png"
+                  alt="logo"
+                  class="w-100"
+                />
+              </div>
+              <div class="row mt-5" id="mealsDesc"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturant App</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <section id="loading"></section>
+    <div class="cover">
+      <header>
+        <nav class="d-flex justify-content-between flex-column">
+          <ul class="my-5">
+            <li class="homes">
+              <a aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="search">
+              <a aria-current="page" href="search.html">Search</a>
+            </li>
+            <li class="categories">
+              <a href="category.html">Categories</a>
+            </li>
+            <li class="area">
+              <a href="area.html">Area</a>
+            </li>
+            <li class="ingredients">
+              <a href="ingredient.html">Ingredients</a>
+            </li>
+            <li class="contact">
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="social text-center mt-5">
+            <i class="fa-brands fa-facebook-f px-2"></i>
+            <i class="fa-brands fa-youtube px-2"></i>
+            <i class="fa-brands fa-twitter px-2"></i>
+            <i class="fa-brands fa-linkedin px-2"></i>
+            <p class="pt-4">Copyright &copy; 2022 All Rights Reserved.</p>
+          </div>
+        </nav>
+        <div class="menu d-flex flex-column justify-content-between">
+          <i class="fa-solid fa-sliders menu-item"></i>
+          <i class="fas fa-globe"></i>
+          <i class="fas fa-share-alt"></i>
+        </div>
+      </header>
+      <section class="home vh-100">
+        <div class="cover">
+          <div class="container">
+            <div class="row">
+              <div class="logo w-25 mx-auto">
+                <img
+                  src="images/png-clipart-innovative-restaurant-logo-free-logo-design-template-eps (2).png"
+                  alt="logo"
+                  class="w-100"
+                />
+              </div>
+            </div>
+            <div class="row w-50 mx-auto" id="contactForm">
+              <div class="col-md-12">
+                <div class="sc-gyElHZ fndwTC">
+                  <div class="sc-gjNHFA Hcaek">
+                    <div class="sc-iqVWFU clxrWv">
+                      <input
+                        type="text"
+                        placeholder="Enter Your Name"
+                        id="nameInp"
+                        class="input-without-border-radius my-3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- <span id="validName"></span> -->
+                <div
+                  role="alert"
+                  id="nameAlert"
+                  class="fade sc-jWULZn eosdvs alert alert-warning show d-none"
+                >
+                  <div class="sc-jLVpRp hHVItF">
+                    <svg
+                      class="mdi-icon"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M13,10H11V6H13V10M13,14H11V12H13V14Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="sc-dZpvmy cJCFZQ">
+                    <p id="validName"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="sc-gyElHZ fndwTC">
+                  <div class="sc-gjNHFA Hcaek">
+                    <div class="sc-iqVWFU clxrWv">
+                      <input
+                        type="email"
+                        placeholder="Enter Your Email"
+                        id="emailInp"
+                        class="input-without-border-radius my-3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- <span id="validEmail"></span> -->
+                <div
+                  role="alert"
+                  id="emailAlert"
+                  class="fade sc-jWULZn eosdvs alert alert-warning show d-none"
+                >
+                  <div class="sc-jLVpRp hHVItF">
+                    <svg
+                      class="mdi-icon"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M13,10H11V6H13V10M13,14H11V12H13V14Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="sc-dZpvmy cJCFZQ">
+                    <p id="validEmail"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="sc-gyElHZ fndwTC">
+                  <div class="sc-gjNHFA Hcaek">
+                    <div class="sc-iqVWFU clxrWv">
+                      <textarea
+                        id="textArea"
+                        rows="3"
+                        cols="5"
+                        placeholder="Enter Your Message"
+                        class="input-without-border-radius my-3"
+                      ></textarea>
+
+                      <!-- <input type="password" placeholder="Enter Your Password" id="passwordInp"  class="input-without-border-radius my-3"> -->
+                    </div>
+                  </div>
+                </div>
+                <div
+                  role="alert"
+                  id="passwordAlert"
+                  class="fade sc-jWULZn eosdvs alert alert-warning show d-none"
+                >
+                  <div class="sc-jLVpRp hHVItF">
+                    <svg
+                      class="mdi-icon"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="sc-dZpvmy cJCFZQ">
+                    <p id="validPassword"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 text-center">
+                <button class="btn" id="signUp" disabled="true">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>

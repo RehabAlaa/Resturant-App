@@ -12,6 +12,8 @@ $("header").css("left", `-${navWidth}px`);
 
 $("header .menu-item").click(function () {
   if ($("header").css("left") === "0px") {
+    $("#toggle").removeClass("d-none");
+    $("#close").addClass("d-none");
     $("header").animate({ left: `-${navWidth}` }, 1000);
     $("nav ul .homes").animate({ top: `50%`, opacity: 0 }, 200, function () {
       $("nav ul .search").animate({ top: `50%`, opacity: 0 }, 200, function () {
@@ -40,6 +42,8 @@ $("header .menu-item").click(function () {
       });
     });
   } else {
+    $("#toggle").addClass("d-none");
+    $("#close").removeClass("d-none");
     $("header").animate({ left: `0px` }, 1000, function () {
       $("nav ul .homes").animate({ top: `0`, opacity: 1 }, 200, function () {
         $("nav ul .search").animate({ top: `0`, opacity: 1 }, 200, function () {

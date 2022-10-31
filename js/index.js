@@ -111,13 +111,13 @@ async function getmealsFromApi() {
 </div>`;
   }
   $("#meals").html(containerMeals);
-  $("#meals .card-body").click(async function (e) {
+  $("#meals .card-body p").click(async function (e) {
     // document.location.href = "../description.html";
     // let element = $(e.target).text();
     let apiResponses = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(e.target)
-        .children("p")
-        .text()}`
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
+        e.target
+      ).text()}`
     );
     console.log("apiResponses");
     let finalResults = await apiResponses.json();
@@ -125,7 +125,7 @@ async function getmealsFromApi() {
     let mealsDesc = finalResults.meals;
     let containerMealsDesc = "";
     for (let i = 0; i < mealsDesc.length; i++) {
-      if (mealsDesc[i].strMeal === $(e.target).children("p").text()) {
+      if (mealsDesc[i].strMeal === $(e.target).text()) {
         // let tags = mealsDesc[i].strTags.split(",");
         // for (let j = 0; j < tags.length; j++) {
         //   console.log(tags[j]);
@@ -174,12 +174,12 @@ async function getmealsFromApi() {
       }
     }
 
-    $("#mealsDesc").html(containerMealsDesc);
+    $("#meals").html(containerMealsDesc);
 
     // return element;
     // console.log(element);
-    $("#lightBox").removeClass("d-none");
-    $("#mealsCategories").addClass("d-none");
+    // $("#lightBox").removeClass("d-none");
+    // $("#mealsCategories").addClass("d-none");
   });
 }
 getmealsFromApi();

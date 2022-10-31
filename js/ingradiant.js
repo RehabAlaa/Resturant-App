@@ -13,6 +13,8 @@ $("header").css("left", `-${navWidth}px`);
 
 $("header .menu-item").click(function () {
   if ($("header").css("left") === "0px") {
+    $("#toggle").removeClass("d-none");
+    $("#close").addClass("d-none");
     $("header").animate({ left: `-${navWidth}` }, 1000);
     $("nav ul .homes").animate({ top: `50%`, opacity: 0 }, 200, function () {
       $("nav ul .search").animate({ top: `50%`, opacity: 0 }, 200, function () {
@@ -41,6 +43,8 @@ $("header .menu-item").click(function () {
       });
     });
   } else {
+    $("#toggle").addClass("d-none");
+    $("#close").removeClass("d-none");
     $("header").animate({ left: `0px` }, 1000, function () {
       $("nav ul .homes").animate({ top: `0`, opacity: 1 }, 200, function () {
         $("nav ul .search").animate({ top: `0`, opacity: 1 }, 200, function () {
@@ -111,7 +115,7 @@ async function getIngradiantsFromApi() {
   }
   $("#ingredients").html(containermealsIngredient);
 
-  $("#ingredients .card").click(async function (e) {
+  $("#ingredients .card h4").click(async function (e) {
     // document.location.href = "../description.html";
     // let element = $(e.target).text();
     let apiResponses = await fetch(
@@ -141,38 +145,37 @@ async function getIngradiantsFromApi() {
       }
     }
 
-    $("#mealsCategory").html(containerMealsDesc);
+    $("#ingredients").html(containerMealsDesc);
 
     // return element;
     // console.log(element);
-    $("#lightBox").removeClass("d-none");
-    $("#mealsCategories").addClass("d-none");
+    // $("#lightBox").removeClass("d-none");
+    // $("#mealsCategories").addClass("d-none");
     //description
 
-    $(".catContainer .cardCat .categoryBody .categoryText").click(
-      async function (e) {
-        // document.location.href = "../description.html";
-        // let element = $(e.target).text();
-        console.log(`dxx ${$(e.target).text()}`);
-        let response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
-            e.target
-          ).text()}`
-        );
-        console.log("response");
-        let final = await response.json();
-        console.log(final);
-        let mealsCatDesc = final.meals;
-        let containerMealsCatDesc = "";
-        for (let i = 0; i < mealsCatDesc.length; i++) {
-          if (
-            `${mealsCatDesc[i].strMeal.includes($(e.target).text()) === true}`
-          ) {
-            // let tags = mealsCatDesc[i].strTags.split(",");
-            // for (let j = 0; j < tags.length; j++) {
-            //   console.log(tags[j]);
-            // }
-            containerMealsCatDesc += `  <div class="col-md-4">
+    $(".card-body p").click(async function (e) {
+      // document.location.href = "../description.html";
+      // let element = $(e.target).text();
+      console.log(`dxx ${$(e.target).text()}`);
+      let response = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
+          e.target
+        ).text()}`
+      );
+      console.log("response");
+      let final = await response.json();
+      console.log(final);
+      let mealsCatDesc = final.meals;
+      let containerMealsCatDesc = "";
+      for (let i = 0; i < mealsCatDesc.length; i++) {
+        if (
+          `${mealsCatDesc[i].strMeal.includes($(e.target).text()) === true}`
+        ) {
+          // let tags = mealsCatDesc[i].strTags.split(",");
+          // for (let j = 0; j < tags.length; j++) {
+          //   console.log(tags[j]);
+          // }
+          containerMealsCatDesc += `  <div class="col-md-4">
       <img
         src="${mealsCatDesc[i].strMealThumb}"
         class="w-100 text-center"
@@ -213,18 +216,17 @@ async function getIngradiantsFromApi() {
         <button class="btn btn-danger"><a class="text-white text-decoration-none" href="${mealsCatDesc[i].strYoutube}">youtube</a></button>
       </div>
     </div>`;
-          }
         }
-
-        $("#mealsCategoryDesc").html(containerMealsCatDesc);
-
-        // return element;
-        // console.log(element);
-        $("#lightBoxTwo").removeClass("d-none");
-        $("#mealsCategories").addClass("d-none");
-        $("#lightBox").addClass("d-none");
       }
-    );
+
+      $("#ingredients").html(containerMealsCatDesc);
+
+      // return element;
+      // console.log(element);
+      // $("#lightBoxTwo").removeClass("d-none");
+      // $("#mealsCategories").addClass("d-none");
+      // $("#lightBox").addClass("d-none");
+    });
   });
 }
 getIngradiantsFromApi();

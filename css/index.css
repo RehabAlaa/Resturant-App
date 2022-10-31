@@ -113,7 +113,6 @@ header .social i:hover {
   -moz-transition: opacity 1s, top 1s;
   -ms-transition: opacity 1s, top 1s;
   -o-transition: opacity 1s, top 1s;
-  cursor: pointer;
 }
 .card-body .p1 {
   font-size: 25px;

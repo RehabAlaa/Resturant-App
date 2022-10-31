@@ -12,6 +12,8 @@ $("header").css("left", `-${navWidth}px`);
 
 $("header .menu-item").click(function () {
   if ($("header").css("left") === "0px") {
+    $("#toggle").removeClass("d-none");
+    $("#close").addClass("d-none");
     $("header").animate({ left: `-${navWidth}` }, 1000);
     $("nav ul .homes").animate({ top: `50%`, opacity: 0 }, 200, function () {
       $("nav ul .search").animate({ top: `50%`, opacity: 0 }, 200, function () {
@@ -40,6 +42,8 @@ $("header .menu-item").click(function () {
       });
     });
   } else {
+    $("#toggle").addClass("d-none");
+    $("#close").removeClass("d-none");
     $("header").animate({ left: `0px` }, 1000, function () {
       $("nav ul .homes").animate({ top: `0`, opacity: 1 }, 200, function () {
         $("nav ul .search").animate({ top: `0`, opacity: 1 }, 200, function () {
@@ -97,23 +101,23 @@ async function getMealsCategoryFromApi() {
           }" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text p1">${mealCategory[i].strCategory}</p>
-            <p class="card-text">${mealCategory[i].strCategoryDescription
+            <span class="card-text">${mealCategory[i].strCategoryDescription
               .split(" ")
               .slice(0, 20)
-              .join(" ")}</p>
+              .join(" ")}</span>
           </div>
         </div>
   </div>`;
   }
   $("#mealCategory").html(containermealCategory);
 
-  $(".col-md-3").click(async function (e) {
+  $(".card-body .p1").click(async function (e) {
     // document.location.href = "../description.html";
     // let element = $(e.target).text();
     let apiResponses = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${$(e.target)
-        .children(".p1")
-        .text()}`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${$(
+        e.target
+      ).text()}`
     );
     console.log("apiResponses");
     let finalResults = await apiResponses.json();
@@ -121,12 +125,7 @@ async function getMealsCategoryFromApi() {
     let mealsDesc = finalResults.meals;
     let containerMealsDesc = "";
     for (let i = 0; i < mealsDesc.length; i++) {
-      if (
-        `${
-          mealsDesc[i].strMeal.includes($(e.target).children(".p1").text()) ===
-          true
-        }`
-      ) {
+      if (`${mealsDesc[i].strMeal.includes($(e.target).text()) === true}`) {
         containerMealsDesc += ` <div class="col-md-3 catContainer">
         <div class="card cardCat">
             <img src="${mealsDesc[i].strMealThumb}" class="card-img-top" alt="...">
@@ -138,23 +137,23 @@ async function getMealsCategoryFromApi() {
       }
     }
 
-    $("#mealsCategory").html(containerMealsDesc);
+    $("#mealCategory").html(containerMealsDesc);
 
     // return element;
     // console.log(element);
-    $("#lightBox").removeClass("d-none");
-    $("#mealsCategories").addClass("d-none");
+    // $("#lightBox").removeClass("d-none");
+    // $("#mealsCategories").addClass("d-none");
 
     //description
 
-    $("#lightBox .card").click(async function (e) {
+    $(".card-body p").click(async function (e) {
       // document.location.href = "../description.html";
       // let element = $(e.target).text();
-      console.log(`dxx ${$(e.target).children("p").text()}`);
+      console.log(`dxx ${$(e.target).text()}`);
       let response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(e.target)
-          .children("p")
-          .text()}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
+          e.target
+        ).text()}`
       );
       console.log("response");
       let final = await response.json();
@@ -217,13 +216,13 @@ async function getMealsCategoryFromApi() {
         }
       }
 
-      $("#mealsCategoryDesc").html(containerMealsCatDesc);
+      $("#mealCategory").html(containerMealsCatDesc);
 
       // return element;
       // console.log(element);
-      $("#lightBoxTwo").removeClass("d-none");
-      $("#mealsCategories").addClass("d-none");
-      $("#lightBox").addClass("d-none");
+      // $("#lightBoxTwo").removeClass("d-none");
+      // $("#mealsCategories").addClass("d-none");
+      // $("#lightBox").addClass("d-none");
     });
   });
 }

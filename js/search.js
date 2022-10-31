@@ -12,6 +12,8 @@ $("header").css("left", `-${navWidth}px`);
 
 $("header .menu-item").click(function () {
   if ($("header").css("left") === "0px") {
+    $("#toggle").removeClass("d-none");
+    $("#close").addClass("d-none");
     $("header").animate({ left: `-${navWidth}` }, 1000);
     $("nav ul .homes").animate({ top: `50%`, opacity: 0 }, 200, function () {
       $("nav ul .search").animate({ top: `50%`, opacity: 0 }, 200, function () {
@@ -40,6 +42,8 @@ $("header .menu-item").click(function () {
       });
     });
   } else {
+    $("#toggle").addClass("d-none");
+    $("#close").removeClass("d-none");
     $("header").animate({ left: `0px` }, 1000, function () {
       $("nav ul .homes").animate({ top: `0`, opacity: 1 }, 200, function () {
         $("nav ul .search").animate({ top: `0`, opacity: 1 }, 200, function () {
@@ -109,13 +113,13 @@ inpName.addEventListener(
       $("#meals").html("");
     }
 
-    $("#meals .card-body").click(async function (e) {
+    $("#meals .card-body p").click(async function (e) {
       // document.location.href = "../description.html";
       // let element = $(e.target).text();
       let apiResponses = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(e.target)
-          .children("p")
-          .text()}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
+          e.target
+        ).text()}`
       );
       console.log("apiResponses");
       let finalResults = await apiResponses.json();
@@ -123,7 +127,7 @@ inpName.addEventListener(
       let mealsDesc = finalResults.meals;
       let containerMealsDesc = "";
       for (let i = 0; i < mealsDesc.length; i++) {
-        if (mealsDesc[i].strMeal === $(e.target).children("p").text()) {
+        if (mealsDesc[i].strMeal === $(e.target).text()) {
           // let tags = mealsDesc[i].strTags.split(",");
           // for (let j = 0; j < tags.length; j++) {
           //   console.log(tags[j]);
@@ -172,12 +176,12 @@ inpName.addEventListener(
         }
       }
 
-      $("#mealsDesc").html(containerMealsDesc);
+      $("#meals").html(containerMealsDesc);
 
       // return element;
       // console.log(element);
-      $("#lightBox").removeClass("d-none");
-      $("#mealsCategories").addClass("d-none");
+      // $("#lightBox").removeClass("d-none");
+      // $("#mealsCategories").addClass("d-none");
     });
   }
 );
@@ -224,13 +228,13 @@ async function getMealsByLetterFromApi(meals) {
   //     document.getElementById("meals").innerHTML = containerMealsLetter;
   //   }
 
-  $(".card-body").click(async function (e) {
+  $(".card-body p").click(async function (e) {
     // document.location.href = "../description.html";
     // let element = $(e.target).text();
     let apiResponses = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(e.target)
-        .children("p")
-        .text()}`
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${$(
+        e.target
+      ).text()}`
     );
     console.log("apiResponses");
     let finalResults = await apiResponses.json();
@@ -238,7 +242,7 @@ async function getMealsByLetterFromApi(meals) {
     let mealsDesc = finalResults.meals;
     let containerMealsDesc = "";
     for (let i = 0; i < mealsDesc.length; i++) {
-      if (mealsDesc[i].strMeal === $(e.target).children("p").text()) {
+      if (mealsDesc[i].strMeal === $(e.target).text()) {
         // let tags = mealsDesc[i].strTags.split(",");
         // for (let j = 0; j < tags.length; j++) {
         //   console.log(tags[j]);
@@ -287,13 +291,13 @@ async function getMealsByLetterFromApi(meals) {
       }
     }
 
-    $("#mealsDesc").html(containerMealsDesc);
+    document.getElementById("meals").innerHTML = containerMealsDesc;
 
     // return element;
     // console.log(element);
-    $("#lightBoxTwo").removeClass("d-none");
-    $("#mealsCategories").addClass("d-none");
-    $("#lightBox").addClass("d-none");
+    // $("#lightBoxTwo").removeClass("d-none");
+    // $("#mealsCategories").addClass("d-none");
+    // $("#lightBox").addClass("d-none");
   });
 }
 
